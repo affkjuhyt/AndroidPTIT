@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new OrderFragment();
                         break;
                     case R.id.store:
-                        selectedFragment = new StoreFragment();
+                        selectedFragment = new MapsFragment();
                         break;
                     case R.id.user:
                         selectedFragment = new UserFragment();
