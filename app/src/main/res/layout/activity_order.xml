@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".OrderFragment"
+  android:gravity="center">
+
+  <LinearLayout
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="70dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/product"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="30dp"/>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/name_product"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="Cà Phê Sữa Đá"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="32.000 đ"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_like"
+                    android:src="@drawable/heart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/like"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Yêu thích"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F7F7F7"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <RadioButton
+            android:id="@+id/checkSize1"
+            android:text="Nhỏ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#F7F7F7">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/checkSize2"
+                android:text="Vừa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ 3.000đ"
+                android:layout_alignParentRight="true"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#F7F7F7">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/checkSize3"
+                android:text="Lớn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ 6.000đ"
+                android:layout_alignParentRight="true"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                />
+        </RelativeLayout>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F7F7F7"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giới thiệu món"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/des_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#F7F7F7"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:textColor="@android:color/white"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/total"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="32.000 đ"
+                android:textColor="@android:color/white"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+</RelativeLayout>
