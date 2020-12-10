@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "978336823644",
+    "firebase_url": "https://androidptit-default-rtdb.firebaseio.com",
+    "project_id": "androidptit",
+    "storage_bucket": "androidptit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978336823644:android:b9176de328e000996d6999",
+        "android_client_info": {
+          "package_name": "com.ltud.thecoffeehouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978336823644-ss6v8st1dcmuc8gfb3j031nngk7etl4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1_FdYS54jqqrA5AZZJWBXTWZVbstrF70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978336823644-ss6v8st1dcmuc8gfb3j031nngk7etl4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
