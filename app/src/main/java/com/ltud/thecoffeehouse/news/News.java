@@ -1,4 +1,4 @@
-package news;
+package com.ltud.thecoffeehouse.news;
 
 public class News {
     private int resourceId;
@@ -25,3 +25,4 @@ public class News {
         this.title = title;
     }
 }
+

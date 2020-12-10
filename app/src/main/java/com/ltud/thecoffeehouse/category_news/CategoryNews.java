@@ -1,15 +1,17 @@
-package category_news;
+package com.ltud.thecoffeehouse.category_news;
+
+import android.util.Log;
 
 import java.util.List;
-import news.News;
+import com.ltud.thecoffeehouse.news.News;
 
-public class CategoryNews {
+public class CategoryNews<news> {
     private String nameCategory;
-    private List<News> news;
+    private List<News> books;
 
     public CategoryNews(String nameCategory, List<News> books) {
         this.nameCategory = nameCategory;
-        this.news = news;
+        this.books = books;
     }
 
     public String getNameCategory() {
@@ -21,10 +23,10 @@ public class CategoryNews {
     }
 
     public List<News> getBooks() {
-        return news;
+        return books;
     }
 
     public void setBooks(List<News> books) {
-        this.news = books;
+        this.books = books;
     }
 }

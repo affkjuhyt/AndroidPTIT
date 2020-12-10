@@ -1,4 +1,4 @@
-package category_news;
+package com.ltud.thecoffeehouse.category_news;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ltud.thecoffeehouse.NewsFragment;
 import com.ltud.thecoffeehouse.R;
 
 import java.util.List;
 
-import news.NewsAdapter;
+import com.ltud.thecoffeehouse.news.NewsAdapter;
 
 public class CategoryNewsAdapter extends RecyclerView.Adapter<CategoryNewsAdapter.CategoryNewsViewHolder> {
 
@@ -41,36 +40,36 @@ public class CategoryNewsAdapter extends RecyclerView.Adapter<CategoryNewsAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CategoryNewsViewHolder holder, int position) {
-        CategoryNews category = mListCategoryNews.get(position);
-        if(category == null){
+        CategoryNews categoryNews = mListCategoryNews.get(position);
+        if(categoryNews == null){
             return;
         }
 
-        holder.tvNamCategory.setText(category.getNameCategory());
+        holder.tvNamCategory.setText(categoryNews.getNameCategory());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,RecyclerView.HORIZONTAL,false);
-        holder.rcvBook.setLayoutManager(linearLayoutManager);
+        holder.rcvNews.setLayoutManager(linearLayoutManager);
 
         NewsAdapter newsAdapter = new NewsAdapter();
-        newsAdapter.setData(category.getBooks());
+        newsAdapter.setData(categoryNews.getBooks());
 
-        holder.rcvBook.setAdapter(newsAdapter);
+        holder.rcvNews.setAdapter(newsAdapter);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mListCategoryNews.size();
     }
 
     public class CategoryNewsViewHolder extends RecyclerView.ViewHolder{
         private TextView tvNamCategory;
-        private RecyclerView rcvBook;
+        private RecyclerView rcvNews;
 
         public CategoryNewsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvNamCategory = itemView.findViewById(R.id.tv_name_category);
-            rcvBook = itemView.findViewById(R.id.rcv_book);
+            rcvNews = itemView.findViewById(R.id.rcv_book);
         }
     }
 }

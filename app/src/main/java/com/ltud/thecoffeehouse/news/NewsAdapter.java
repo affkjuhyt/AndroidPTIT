@@ -1,6 +1,7 @@
-package news;
+package com.ltud.thecoffeehouse.news;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +18,14 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private Context mContext;
-    private List<News> mNews;
+    private List<News> mBooks;
+    private RecyclerView.RecyclerListener listener;
 
     public NewsAdapter() {
     }
 
     public void setData(List<News> list){
-        this.mNews = list;
+        this.mBooks = list;
         notifyDataSetChanged();
     }
 
@@ -36,13 +38,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        News news = mNews.get(position);
-        if(news==null){
+        News book = mBooks.get(position);
+        if(book==null){
             return;
         }
 
-        holder.imgBook.setImageResource(news.getResourceId());
-        holder.tvTitle.setText(news.getTitle());
+        holder.imgBook.setImageResource(book.getResourceId());
+        holder.tvTitle.setText(book.getTitle());
 
         holder.btnGoToDetailNews.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +59,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public int getItemCount() {
-        if(mNews !=null){
-            return mNews.size();
+        if(mBooks !=null){
+            return mBooks.size();
         }
         return 0;
     }
