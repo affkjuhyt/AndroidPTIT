@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D2D2"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thien Linh"
+            android:textSize="20dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtHistory"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="History Orders"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/spnLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ListView
+        android:id="@+id/listOrder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtHistory"
+        />
+
+    <RelativeLayout
+        android:id="@+id/emptyOrder"
+        android:layout_below="@+id/txtHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:id="@+id/imgEmptyOrder"
+            android:layout_centerHorizontal="true"
+            android:layout_width="160dp"
+            android:layout_height="160dp" />
+
+        <TextView
+            android:id="@+id/txtEmptyOrder"
+            android:layout_below="@+id/imgEmptyOrder"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/btnEmptyOrder"
+            android:layout_below="@+id/txtEmptyOrder"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
