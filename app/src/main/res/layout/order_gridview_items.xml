@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:background="@drawable/order_border"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/gridItemImg"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:id="@+id/orderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridItemImg"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="DIT ME MAY"
+
+        />
+    <View
+        android:layout_below="@+id/orderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#CCCCCC"
+        />
+    <TextView
+        android:id="@+id/orderPrice"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/orderTitle"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:text="DIT ME MAY"
+        />
+
+    <ImageButton
+        android:id="@+id/orderAddButton"
+        android:layout_below="@+id/orderTitle"
+        android:layout_alignRight="@+id/orderPrice"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        android:src="@android:drawable/ic_menu_add"
+        android:tint="#FF9800"
+        />
+</RelativeLayout>
