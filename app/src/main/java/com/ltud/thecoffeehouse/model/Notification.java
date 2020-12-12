@@ -44,4 +44,8 @@ public class Notification {
     public void setOutDate(String outDate) {
         this.outDate = outDate;
     }
+
+    public String toString() {
+        return this.title + " " + shortContent + " " + outDate;
+    }
 }
