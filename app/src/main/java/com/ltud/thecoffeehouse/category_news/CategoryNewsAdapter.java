@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ltud.thecoffeehouse.R;
+import com.ltud.thecoffeehouse.news.NewsAdapter;
 
 import java.util.List;
-
-import com.ltud.thecoffeehouse.news.NewsAdapter;
 
 public class CategoryNewsAdapter extends RecyclerView.Adapter<CategoryNewsAdapter.CategoryNewsViewHolder> {
 
