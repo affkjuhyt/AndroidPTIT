@@ -1,9 +1,8 @@
 package com.ltud.thecoffeehouse.category_news;
 
-import android.util.Log;
+import com.ltud.thecoffeehouse.news.News;
 
 import java.util.List;
-import com.ltud.thecoffeehouse.news.News;
 
 public class CategoryNews<news> {
     private String nameCategory;

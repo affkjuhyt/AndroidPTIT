@@ -3,25 +3,22 @@ package com.ltud.thecoffeehouse;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ltud.thecoffeehouse.category_news.CategoryNews;
 import com.ltud.thecoffeehouse.category_news.CategoryNewsAdapter;
 import com.ltud.thecoffeehouse.model.Notification;
 import com.ltud.thecoffeehouse.news.News;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsFragment extends Fragment {
 
