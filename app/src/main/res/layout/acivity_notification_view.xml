@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+
+    <RelativeLayout
+        android:id="@+id/topNoti"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/imgCancelNoti"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/cancel"/>
+
+        <TextView
+            android:layout_toRightOf="@id/imgCancelNoti"
+            android:id="@+id/txtNoti"
+            android:layout_marginLeft="110dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông báo"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:background="@color/white"/>
+
+        <ImageView
+            android:src="@drawable/paper"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/txtNoti"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="20dp"
+            android:layout_width="20dp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/topNoti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/noti_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+</RelativeLayout>
