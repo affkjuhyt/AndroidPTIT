@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "978336823644-7me07nfj5gr4fernkrub5sj3e2k3r86b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ltud.thecoffeehouse",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "978336823644-vqddjvdlpd4q7pe90oa6tappd31v5a1e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ltud.thecoffeehouse",
+            "certificate_hash": "846245437b5a43f701394f20e4d98151ce9256fa"
+          }
+        },
+        {
           "client_id": "978336823644-ss6v8st1dcmuc8gfb3j031nngk7etl4t.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -38,4 +54,3 @@
   ],
   "configuration_version": "1"
 }
-
