@@ -1,51 +1,58 @@
 package com.ltud.thecoffeehouse;
 
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.ltud.thecoffeehouse.category_news.CategoryNews;
+import com.ltud.thecoffeehouse.category_news.CategoryNewsAdapter;
+import com.ltud.thecoffeehouse.news.News;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public NewsFragment() {
-        // Required empty public constructor
-    }
-
-    public static NewsFragment newInstance(String param1, String param2) {
-        NewsFragment fragment = new NewsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RecyclerView rcvCategory;
+    private CategoryNewsAdapter categoryNewsAdapter;
+    private Context mContext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        rcvCategory = view.findViewById(R.id.rcv_category);
+        categoryNewsAdapter = new CategoryNewsAdapter(mContext);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,RecyclerView.VERTICAL,false);
+        rcvCategory.setLayoutManager(linearLayoutManager);
+
+        categoryNewsAdapter.setData(getListCategory());
+        rcvCategory.setAdapter(categoryNewsAdapter);
+
+        return view;
+    }
+
+    private List<CategoryNews> getListCategory(){
+        List<CategoryNews> listCategory = new ArrayList<>();
+
+        List<News> listNews = new ArrayList<>();
+        listNews.add(new News(R.drawable.avatar,"Book 1"));
+        listNews.add(new News(R.drawable.avatar,"Book 2"));
+        listNews.add(new News(R.drawable.avatar,"Book 3"));
+        listNews.add(new News(R.drawable.avatar,"Book 4"));
+
+        listCategory.add(new CategoryNews("Category 1",listNews));
+        listCategory.add(new CategoryNews("Category 2",listNews));
+        listCategory.add(new CategoryNews("Category 3",listNews));
+
+        return listCategory;
     }
 }
