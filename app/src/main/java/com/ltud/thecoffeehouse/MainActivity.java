@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         setDefaultFragment();
         bottomNavigationBar = findViewById(R.id.bottom_nav_bar);
         mainFrame = findViewById(R.id.bottom_wrapper);
