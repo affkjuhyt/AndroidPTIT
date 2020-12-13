@@ -1,13 +1,25 @@
 package com.ltud.thecoffeehouse;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
-import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,43 +29,64 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MapsFragment extends Fragment {
 
     private Spinner spnLocation;
-    private GoogleMap googleMap1, googleMap2, googleMap3, googleMap4;
-    private FusedLocationProviderClient fusedLocationProviderClient;
+    private GoogleMap mMap;
+    private LocationManager locationManager;
+    private String provider;
+
+    ArrayList<LatLng> arrayList = new ArrayList<LatLng>();
+    LatLng coffee1 = new LatLng(21.0479885, 105.790680218);
+    LatLng coffee2 = new LatLng(21.0479524, 105.795407118);
+    LatLng coffee3 = new LatLng(21.0479524,    105.795407118);
+
+    ArrayList<String> title = new ArrayList<String>();
+
+
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            LatLng hadong = new LatLng(20.9791757,105.785067717);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.addMarker(new MarkerOptions().position(hadong).title("PTIT University"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hadong, 15f));
+            mMap = googleMap;
+            for(int i = 0; i < arrayList.size(); i++) {
+                for (int j =0; j<title.size(); j++) {
+                    System.out.println(i);
+                    mMap.addMarker(new MarkerOptions().position(arrayList.get(i)).title(String.valueOf(title.get(j))).icon(BitmapDescriptorFactory.fromResource(R.drawable.the_cofee)));
+                }
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(arrayList.get(i), 15f));
+            }
+
+            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    String markertitle = marker.getTitle();
+
+                    Intent i = new Intent(getActivity().getApplicationContext(), DetailStore.class);
+                    i.putExtra("title", markertitle);
+                    startActivity(i);
+                    return false;
+                }
+            });
+
+            UiSettings uiSettings = googleMap.getUiSettings();
+            uiSettings.setCompassEnabled(true);
+            uiSettings.setZoomControlsEnabled(true);
+            uiSettings.setMyLocationButtonEnabled(true);
         }
     };
 
@@ -74,25 +107,53 @@ public class MapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
 
+        // Array marker
+        arrayList.add(coffee1);
+        arrayList.add(coffee2);
+        arrayList.add(coffee3);
+
+        title.add("The coffe Nguyen Van Tuan");
+        title.add("The coffe Nguyen Van Loc");
+        title.add("The coffe Truong Tring");
+
         spnLocation = (Spinner) view.findViewById(R.id.spnLocation);
 
-        final ArrayList<String> location = new ArrayList<String>();
-        location.add("Chọn khu vực");
-        location.add("Ninh Kiều");
-        location.add("Thành phố Biên Hòa");
-        location.add("Quận Hải Châu");
-        location.add("Thành phố Vinh");
-        location.add("Quận Lê Chân");
+        final ArrayList<String> location_list = new ArrayList<String>();
+        location_list.add("Chọn thể loại hiển thị");
+        location_list.add("Bản đồ tự nhiên");
+        location_list.add("Bản đồ đô thị");
+        location_list.add("Bản đồ hành chính");
+        location_list.add("Bản đồ vinh");
 
-        ArrayAdapter locationAdapter = new ArrayAdapter(this.getContext(), android.R.layout.simple_spinner_item, location);
+        ArrayAdapter locationAdapter = new ArrayAdapter(this.getContext(), android.R.layout.simple_spinner_item, location_list);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnLocation.setAdapter(locationAdapter);
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity().getApplicationContext());
+        spnLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0: // Hybrid
+                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        break;
+                    case 1: // None
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+                        break;
+                    case 2: // Normal
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                        break;
+                    case 3: // Statellite
+                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        break;
+                    default:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+                        break;
+                }
+            }
 
-        if (ActivityCompat.checkSelfPermission(MapsFragment.class
-                , Manifest.permission.ACCESS_FI));
-
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(getActivity(), "Vui long chon dung dia diem", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

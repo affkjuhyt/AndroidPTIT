@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCoffeeHouse">
+        <activity android:name=".DetailStore"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -33,13 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotificationActivity">
-        </activity>
-        <activity android:name=".InfomationActivity">
-        </activity>
-        <activity android:name=".SignInActivity">
-        </activity>
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".InfomationActivity"></activity>
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".OrderActivity" />
 
         <service
             android:name=".MyFirebaseMessagingService"
