@@ -23,24 +23,21 @@
             app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
             app:tabTextColor="#808080">
 
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/popular"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Phổ biến"-->
-<!--                />-->
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/popular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/drink"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Đồ uống" />-->
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/drink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/food"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Đồ ăn" />-->
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.viewpager.widget.ViewPager
@@ -50,4 +47,13 @@
         />
 
     </LinearLayout>
+<!--    <GridView-->
+<!--        android:columnWidth="150dp"-->
+<!--        android:id="@+id/drinkGridView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:numColumns="2"-->
+<!--        android:layout_marginBottom="60dp"-->
+<!--        >-->
+<!--    </GridView>-->
 </RelativeLayout>
