@@ -2,8 +2,11 @@ package com.ltud.thecoffeehouse;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -29,6 +34,7 @@ public class MapsFragment extends Fragment {
 
     private Spinner spnLocation;
     private GoogleMap googleMap1, googleMap2, googleMap3, googleMap4;
+    private FusedLocationProviderClient fusedLocationProviderClient;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -83,27 +89,10 @@ public class MapsFragment extends Fragment {
 
         spnLocation.setAdapter(locationAdapter);
 
-        spnLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String item = parent.getSelectedItem().toString();
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity().getApplicationContext());
 
-                if (item.equals("Ninh Kiều")) {
-                    googleMap1.addMarker(new MarkerOptions().position(new LatLng(10.0345357, 105.7543214)).title("Ninh Kieu"));
-                    googleMap1.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.0345357, 105.7543214), 16));
-                }
-                else if (item.equals("Quận Lê Chân")) {
-                    googleMap2.addMarker(new MarkerOptions().position(new LatLng(10.0345357,105.7543214)).title("Quan Le Chan"));
-                    googleMap2.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.0345357, 105.7543214), 16));
-                }
-                else if (item.equals("Thành phố Biên Hòa")) {
-                    googleMap3.addMarker(new MarkerOptions().position(new LatLng(10.0345357,105.7543214)).title("Thanh pho Bien Hoa"));
-                    googleMap3.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(10.0345357, 105.7543214), 16));
-                }
-            }
+        if (ActivityCompat.checkSelfPermission(MapsFragment.class
+                , Manifest.permission.ACCESS_FI));
 
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getActivity(), "Vui long chon dung dia diem", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 }
