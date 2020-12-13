@@ -68,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public class NewsViewHolder extends RecyclerView.ViewHolder{
         private ImageView imgBook;
         private TextView tvTitle;
-        private Button btnGoToDetailNews;
+        private TextView btnGoToDetailNews;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);

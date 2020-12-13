@@ -2,16 +2,24 @@ package com.ltud.thecoffeehouse;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ltud.thecoffeehouse.category_news.CategoryNews;
 import com.ltud.thecoffeehouse.category_news.CategoryNewsAdapter;
 import com.ltud.thecoffeehouse.model.Notification;
@@ -25,7 +33,10 @@ public class NewsFragment extends Fragment {
     private RecyclerView rcvCategory;
     private CategoryNewsAdapter categoryNewsAdapter;
     private Context mContext;
-    private TextView btnNoti;
+    private ImageView btnNoti, imgUserLogout, imgUserLogin;
+    private TextView txtDangNhap, txtKhachMoi, textdashboard;
+    private FirebaseAuth mAuth;
+    private String imgUrl;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,12 +52,57 @@ public class NewsFragment extends Fragment {
         categoryNewsAdapter.setData(getListCategory());
         rcvCategory.setAdapter(categoryNewsAdapter);
 
-        btnNoti = view.findViewById(R.id.txtIcon);
+        // Visible text view
+        imgUserLogin = view.findViewById(R.id.imgUserLogin);
+        imgUserLogout = view.findViewById(R.id.imgUserLogout);
+        txtDangNhap = view.findViewById(R.id.txtDangNhap);
+        txtKhachMoi = view.findViewById(R.id.txtKhachMoi);
+        textdashboard = view.findViewById(R.id.textdashboard);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            imgUserLogout.setVisibility(View.GONE);
+            txtDangNhap.setVisibility(View.GONE);
+        } else {
+            imgUserLogin.setVisibility(View.GONE);
+            txtKhachMoi.setVisibility(View.GONE);
+            textdashboard.setVisibility(View.GONE);
+        }
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(getActivity().getApplicationContext());
+        if(signInAccount != null) {
+            textdashboard.setText(signInAccount.getDisplayName());
+            imgUrl = (signInAccount.getPhotoUrl()).toString();
+
+            Glide.with(this)
+                    .load(imgUrl)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(imgUserLogin);
+        }
+
+        btnNoti = view.findViewById(R.id.imgIconNoti);
         btnNoti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), NotificationActivity.class);
                 startActivity(i);
+            }
+        });
+
+        textdashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InfomationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        txtDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SignInActivity.class);
+                startActivity(intent);
             }
         });
 

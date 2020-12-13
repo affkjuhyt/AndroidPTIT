@@ -11,15 +11,49 @@
         android:layout_width="match_parent"
         android:layout_height="220dp" >
 
+        <ImageView
+            android:id="@+id/imgCancelInfo"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/cancel_2"/>
+
+        <ImageView
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imgInfo"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imgInfo"
+            android:id="@+id/txtNameInfo"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtNameInfo"
+            android:id="@+id/txtKhach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Khách hàng mới"/>
+
     </RelativeLayout>
 
     <RelativeLayout
         android:background="@color/gray"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/relaImageInfo"
         android:id="@+id/relaText"
         android:layout_width="match_parent"
-        android:layout_height="50dp" >
+        android:layout_height="40dp" >
 
         <TextView
             android:textColor="@color/black"
@@ -28,7 +62,7 @@
             android:id="@+id/txtInfo"
             android:text="Thông tin cá nhân"
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -41,23 +75,40 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
             android:text="Đổi"
-            android:textSize="20dp"/>
+            android:textSize="18dp"/>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:background="@color/white"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/relaText"
         android:id="@+id/relaInfoDetail"
         android:layout_width="match_parent"
-        android:layout_height="120dp" >
+        android:layout_height="190dp" >
         
         <RelativeLayout
             android:background="@drawable/border_top_relative"
             android:id="@+id/relaName"
             android:layout_width="match_parent"
-            android:layout_height="40dp" >
+            android:layout_height="60dp" >
+
+            <TextView
+                android:id="@+id/textTitleName"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Tên"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/txtNameDetail"
+                android:layout_below="@+id/textTitleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 
@@ -66,7 +117,25 @@
             android:layout_below="@+id/relaName"
             android:id="@+id/relaDate"
             android:layout_width="match_parent"
-            android:layout_height="40dp" >
+            android:layout_height="60dp" >
+
+            <TextView
+                android:id="@+id/textTitlePhone"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Số điện thoại"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/txtDetailPhone"
+                android:layout_below="@+id/textTitlePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 
@@ -75,7 +144,25 @@
             android:layout_below="@+id/relaDate"
             android:id="@+id/relaPhones"
             android:layout_width="match_parent"
-            android:layout_height="40dp" >
+            android:layout_height="60dp" >
+
+            <TextView
+                android:id="@+id/textTitleEmail"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Email"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/txtEmailDetail"
+                android:layout_below="@+id/textTitleEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
     </RelativeLayout>

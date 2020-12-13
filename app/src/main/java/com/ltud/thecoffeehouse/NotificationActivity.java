@@ -47,7 +47,7 @@ public class NotificationActivity extends AppCompatActivity {
         imageCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(NotificationActivity.this, NewsFragment.class);
+                Intent i = new Intent(NotificationActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
