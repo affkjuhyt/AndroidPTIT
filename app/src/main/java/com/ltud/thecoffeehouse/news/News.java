@@ -1,28 +1,44 @@
 package com.ltud.thecoffeehouse.news;
 
 public class News {
-    private int resourceId;
-    private String title;
+    String image;
+    String title;
+    String description;
+    String role;
+    public News() {
 
-    public News(int resourceId, String title) {
-        this.resourceId = resourceId;
-        this.title = title;
     }
 
-    public int getResourceId() {
-        return resourceId;
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setResourceId(int resourceId) {
-        this.resourceId = resourceId;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 

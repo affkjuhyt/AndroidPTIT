@@ -12,22 +12,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.ltud.thecoffeehouse.Model.OrderItems;
 import com.ltud.thecoffeehouse.R;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
-    private Context mContext;
-    private List<News> mBooks;
+    private Context context ;
     private RecyclerView.RecyclerListener listener;
+    private LayoutInflater layoutInflater;
+    private ArrayList<News> newsItem;
+    News news;
+    public NewsAdapter(Context c, ArrayList<News> newsItem) {
+        this.context = c;
+        this.newsItem = newsItem;
 
-    public NewsAdapter() {
     }
 
-    public void setData(List<News> list){
-        this.mBooks = list;
-        notifyDataSetChanged();
-    }
 
     @NonNull
     @Override
@@ -38,14 +43,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        News book = mBooks.get(position);
-        if(book==null){
-            return;
+        news = newsItem.get(position);
+        if(news==null){
+            holder.tvTitle.setText("Loi me roi");
         }
 
-        holder.imgBook.setImageResource(book.getResourceId());
-        holder.tvTitle.setText(book.getTitle());
 
+        holder.tvTitle.setText(news.getTitle());
+        holder.tvDescription.setText(news.getDescription());
+        Glide.with(context).load(news.getImage()).into(holder.imageView);
         holder.btnGoToDetailNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,23 +65,24 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public int getItemCount() {
-        if(mBooks !=null){
-            return mBooks.size();
-        }
-        return 0;
+//        if(newsItem !=null){
+//            return newsItem.size();
+//        }
+//        return 0;
+        return newsItem.size();
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imgBook;
-        private TextView tvTitle;
-        private TextView btnGoToDetailNews;
-
+        ImageView imageView;
+        TextView tvTitle;
+        TextView btnGoToDetailNews;
+        TextView tvDescription;
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             btnGoToDetailNews = itemView.findViewById(R.id.btn_go_to_detail_news);
-            imgBook = itemView.findViewById(R.id.img_book);
+            imageView = itemView.findViewById(R.id.img_book);
             tvTitle = itemView.findViewById(R.id.tv_title);
-
+            tvDescription = itemView.findViewById(R.id.tv_description);
         }
     }
 }
