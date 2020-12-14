@@ -117,7 +117,8 @@
                 android:layout_height="40dp"
                 android:text="-"
                 android:textColor="@android:color/white"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#FF9500"/>
 
             <TextView
                 android:id="@+id/amount"
@@ -134,18 +135,20 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:text="+"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"
+                android:backgroundTint="#FF9500"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/total"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="69.000 đ"
                     android:textColor="@android:color/white"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp"
+                    android:backgroundTint="#FF9500"/>
             </RelativeLayout>
 
         </LinearLayout>
