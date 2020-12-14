@@ -31,19 +31,17 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity"></activity>
         <activity android:name=".InfomationActivity"></activity>
         <activity android:name=".SignInActivity"></activity>
         <activity android:name=".OrderActivity" />
-
-
         <activity android:name=".Order2Activity">
         </activity>
         <activity android:name=".CartActivity">
+        </activity>
+        <activity android:name=".HistoryActivity">
         </activity>
         <service
             android:name=".MyFirebaseMessagingService"
