@@ -77,7 +77,8 @@ public class MapsFragment extends Fragment {
                     String markertitle = marker.getTitle();
 
                     Intent i = new Intent(getActivity().getApplicationContext(), DetailStore.class);
-                    i.putExtra("title", markertitle);
+//                    i.putExtra("title", markertitle);
+                    final ArrayList<LatLng> latLngs = (ArrayList<LatLng>) i.getSerializableExtra("lat_lng_list");
                     startActivity(i);
                     return false;
                 }
