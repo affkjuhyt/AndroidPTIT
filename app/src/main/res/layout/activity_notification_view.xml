@@ -38,8 +38,8 @@
             android:layout_toRightOf="@+id/txtNoti"
             android:layout_marginLeft="110dp"
             android:layout_marginRight="20dp"
-            android:layout_height="20dp"
-            android:layout_width="20dp" />
+            android:layout_height="30dp"
+            android:layout_width="30dp" />
     </RelativeLayout>
     
     <RelativeLayout
