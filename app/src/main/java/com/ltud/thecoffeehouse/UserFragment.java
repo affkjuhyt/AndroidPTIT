@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public class UserFragment extends Fragment {
     private RelativeLayout relaInfo;
-    private TextView txtSignIn, txtName, txtEmail, txtSignOut, txtInfoAccount;
+    private TextView txtSignIn, txtName, txtEmail, txtSignOut, txtInfoAccount, txtOrderAccount;
     private FirebaseAuth mAuth;
     private ImageView imgGoogle, imgIconSignIn;
     private String imgUrl;
@@ -81,6 +81,7 @@ public class UserFragment extends Fragment {
         txtSignOut = view.findViewById(R.id.txtSignOut);
         imgIconSignIn = view.findViewById(R.id.imgIconSignIn);
         txtSignIn = view.findViewById(R.id.txtSignIn);
+        txtOrderAccount = view.findViewById(R.id.txtOrderAccount);
 
         relaInfo = view.findViewById(R.id.relaInfoAccount);
         relaInfo.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +106,14 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), SignInActivity.class);
+                startActivity(i);
+            }
+        });
+
+        txtOrderAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), HistoryActivity.class);
                 startActivity(i);
             }
         });
