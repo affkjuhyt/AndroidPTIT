@@ -31,15 +31,14 @@ public class PopularFragment extends Fragment {
         tong.setText(String.valueOf(price));
 
         gia.setText(String.valueOf(price));
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        gia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity().getApplication(), OrderActivity.class);
                 startActivity(intent);
             }
         });
+
         return v;
     }
 }

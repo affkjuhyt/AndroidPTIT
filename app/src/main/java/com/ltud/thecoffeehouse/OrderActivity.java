@@ -1,10 +1,11 @@
 package com.ltud.thecoffeehouse;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,12 +18,16 @@ import java.util.List;
 
 public class OrderActivity extends AppCompatActivity {
 
-    private List<CartModel> data;
+    public static List<CartModel> data;
     Button minus, plus, total;
     TextView amount, price;
     RadioGroup radioGroup;
     int count, gia, tong;
     double SizePrice;
+    ImageView detailImg;
+    TextView detailName;
+    TextView detailPrice;
+
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -54,6 +59,19 @@ public class OrderActivity extends AppCompatActivity {
         amount.setText(String.valueOf(count));
         price.setText(String.valueOf(gia)+".000 đ");
         total.setText(String.valueOf(tong)+".000 đ");
+
+//        data = new ArrayList<>();
+//        final CartAdapter customAdapter = new CartAdapter(this, data);
+//
+//        Intent i = getIntent();
+//        int position = i.getIntExtra("Position", -1);
+//        detailName.setText(data.get(position).getName_product());
+//        detailPrice.setText(data.get(position).getPrice());
+//        Picasso.with(this)
+//                .load(data.get(position).getImg_product())
+//                .resize(1000, 1000)
+//                .centerCrop()
+//                .into(detailImg);
 
         InitCounter();
 
@@ -89,6 +107,15 @@ public class OrderActivity extends AppCompatActivity {
                 }
             }
         );
+
+        total.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, CartActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         if(count <= 1) {
             minus.setBackgroundColor(Color.GRAY);
