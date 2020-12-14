@@ -2,6 +2,7 @@ package com.ltud.thecoffeehouse.news;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news,parent,false);
         return new NewsViewHolder(view);
+
     }
 
     @Override
@@ -56,7 +58,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             @Override
             public void onClick(View v) {
                 if(String.valueOf(position) !=null){
-
+                    Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+                    openURL.setData(Uri.parse(news.getLink()));
+                    context.startActivity(openURL);
                 }
 
             }
@@ -86,3 +90,4 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         }
     }
 }
+

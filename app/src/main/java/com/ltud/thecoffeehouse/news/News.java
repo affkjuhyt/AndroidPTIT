@@ -5,8 +5,17 @@ public class News {
     String title;
     String description;
     String role;
+    String link;
     public News() {
 
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getRole() {
