@@ -31,7 +31,7 @@ import com.ltud.thecoffeehouse.Adapter.GridviewAdapter;
 import com.ltud.thecoffeehouse.Model.OrderItems;
 import com.ltud.thecoffeehouse.category_news.CategoryNews;
 //import com.ltud.thecoffeehouse.category_news.CategoryNewsAdapter;
-import com.ltud.thecoffeehouse.model.Notification;
+import com.ltud.thecoffeehouse.Model.Notification;
 import com.ltud.thecoffeehouse.news.News;
 import com.ltud.thecoffeehouse.news.NewsAdapter;
 

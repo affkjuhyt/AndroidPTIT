@@ -1,4 +1,4 @@
-package com.ltud.thecoffeehouse.adapter;
+package com.ltud.thecoffeehouse.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.ltud.thecoffeehouse.R;
-import com.ltud.thecoffeehouse.model.Notification;
+import com.ltud.thecoffeehouse.Model.Notification;
 
 import org.w3c.dom.Text;
 

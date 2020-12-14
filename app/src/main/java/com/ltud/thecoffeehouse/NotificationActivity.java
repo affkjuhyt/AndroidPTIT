@@ -1,15 +1,11 @@
 package com.ltud.thecoffeehouse;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.ltud.thecoffeehouse.adapter.NotificationAdapter;
-import com.ltud.thecoffeehouse.model.Notification;
+import com.ltud.thecoffeehouse.Adapter.NotificationAdapter;
+import com.ltud.thecoffeehouse.Model.Notification;
 
 import java.util.ArrayList;
 import java.util.List;

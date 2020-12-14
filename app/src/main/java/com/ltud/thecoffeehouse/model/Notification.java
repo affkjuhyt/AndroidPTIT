@@ -1,4 +1,4 @@
-package com.ltud.thecoffeehouse.model;
+package com.ltud.thecoffeehouse.Model;
 
 public class Notification {
     private String image;

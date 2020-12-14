@@ -132,7 +132,7 @@
                        android:layout_marginLeft="10dp"
                        android:textStyle="bold"
                        android:textSize="15dp"
-                       android:text="Cập nhật từ nha"/>
+                       android:text="Cập nhật từ Nhà" />
                    <androidx.recyclerview.widget.RecyclerView
                        android:id="@+id/updateView"
                        android:layout_marginTop="20dp"
