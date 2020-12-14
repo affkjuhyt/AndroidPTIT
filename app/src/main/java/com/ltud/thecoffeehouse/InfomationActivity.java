@@ -33,7 +33,7 @@ public class InfomationActivity extends AppCompatActivity {
         imgCancelInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(InfomationActivity.this, UserFragment.class);
+                Intent i = new Intent(InfomationActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -52,7 +52,6 @@ public class InfomationActivity extends AppCompatActivity {
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(imgInfo);
         }
-
 
     }
 }

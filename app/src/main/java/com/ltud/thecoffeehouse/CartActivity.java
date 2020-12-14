@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ltud.thecoffeehouse.OrderSubFragments.PopularFragment;
+
 public class CartActivity extends AppCompatActivity {
     TextView order, shipfee, cost, totalprice, priceproduct, sizeprice, size;
     int fee, price, total;

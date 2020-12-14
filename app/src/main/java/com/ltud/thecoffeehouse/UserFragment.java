@@ -1,6 +1,7 @@
 package com.ltud.thecoffeehouse;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public class UserFragment extends Fragment {
     private RelativeLayout relaInfo;
-    private TextView txtSignIn, txtName, txtEmail, txtSignOut, txtInfoAccount;
+    private TextView txtSignIn, txtName, txtEmail, txtSignOut, txtInfoAccount, txtHelp, txtSettingAccount;
     private FirebaseAuth mAuth;
     private ImageView imgGoogle, imgIconSignIn;
     private String imgUrl;
@@ -81,6 +82,8 @@ public class UserFragment extends Fragment {
         txtSignOut = view.findViewById(R.id.txtSignOut);
         imgIconSignIn = view.findViewById(R.id.imgIconSignIn);
         txtSignIn = view.findViewById(R.id.txtSignIn);
+        txtHelp = view.findViewById(R.id.txtHelp);
+        txtSettingAccount = view.findViewById(R.id.txtSettingAccount);
 
         relaInfo = view.findViewById(R.id.relaInfoAccount);
         relaInfo.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +136,24 @@ public class UserFragment extends Fragment {
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(imgGoogle);
         }
+
+        // FAQ
+        txtHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.thecoffeehouse.com/pages/cau-chuyen-thuong-hieu"));
+                startActivity(intent);
+            }
+        });
+
+        // Settings
+        txtSettingAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.thecoffeehouse.com/pages/cau-chuyen-thuong-hieu"));
+                startActivity(intent);
+            }
+        });
 
         txtSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
