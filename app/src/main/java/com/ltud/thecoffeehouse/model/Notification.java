@@ -1,23 +1,20 @@
 package com.ltud.thecoffeehouse.model;
 
 public class Notification {
-    private int image;
+    private String image;
     private String title;
-    private String shortContent;
-    private String outDate;
+    private String short_title;
+    private String date_time;
+    private String url;
 
-    public Notification(int image, String title, String shortContent, String outDate) {
-        this.image = image;
-        this.title = title;
-        this.shortContent = shortContent;
-        this.outDate = outDate;
+    public Notification() {
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -29,23 +26,27 @@ public class Notification {
         this.title = title;
     }
 
-    public String getShortContent() {
-        return shortContent;
+    public String getShort_title() {
+        return short_title;
     }
 
-    public void setShortContent(String shortContent) {
-        this.shortContent = shortContent;
+    public void setShort_title(String short_title) {
+        this.short_title = short_title;
     }
 
-    public String getOutDate() {
-        return outDate;
+    public String getDate_time() {
+        return date_time;
     }
 
-    public void setOutDate(String outDate) {
-        this.outDate = outDate;
+    public void setDate_time(String date_time) {
+        this.date_time = date_time;
     }
 
-    public String toString() {
-        return this.title + " " + shortContent + " " + outDate;
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

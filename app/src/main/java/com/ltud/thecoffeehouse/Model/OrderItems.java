@@ -7,15 +7,9 @@ public class OrderItems {
     Long id,group_id;
     String description;
     String group_name;
-//    String description, int group_id, String group_name, int id, int image, String name, int price
+
+    //    String description, int group_id, String group_name, int id, int image, String name, int price
     public OrderItems() {
-//        this.description = description;
-//        this.group_id = group_id;
-//        this.group_name = group_name;
-//        this.id = id;
-//        this.image = image;
-//        this.name = name;
-//        this.price = price;
     }
 
     public String getName() {

@@ -1,13 +1,23 @@
 package com.ltud.thecoffeehouse.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.bumptech.glide.Glide;
 import com.ltud.thecoffeehouse.R;
 import com.ltud.thecoffeehouse.model.Notification;
 
@@ -15,47 +25,46 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class NotificationAdapter extends BaseAdapter {
+public class NotificationAdapter extends ArrayAdapter {
 
-    Context context;
+    Activity mContext;
+    String url;
     List<Notification> notifications;
 
-    public NotificationAdapter(Context context, List<Notification> notifications) {
-        this.context = context;
+    public NotificationAdapter(Activity mContext, List<Notification> notifications) {
+        super(mContext, R.layout.row_noti, notifications);
+        this.mContext = mContext;
         this.notifications = notifications;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return notifications.size();
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = mContext.getLayoutInflater();
+        View listItemNotification = inflater.inflate(R.layout.row_noti, null, true);
 
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
+        ImageView imgNoti = listItemNotification.findViewById(R.id.imgNoti);
+        TextView txtTitle = listItemNotification.findViewById(R.id.txtTitle);
+        TextView shortTitle = listItemNotification.findViewById(R.id.shortTitle);
+        TextView dateNoti = listItemNotification.findViewById(R.id.dateNoti);
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+        Notification notification = notifications.get(position);
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Glide.with(mContext).load(notification.getImage()).into(imgNoti);
+        txtTitle.setText(notification.getTitle());
+        shortTitle.setText("" + notification.getShort_title());
+        dateNoti.setText("" + notification.getDate_time());
+        url = notification.getUrl();
 
-        View rowView = convertView;
-        if(rowView == null) {
-            rowView = layoutInflater.inflate(R.layout.row_noti, null, true);
-        }
+        Button btnReadmore = listItemNotification.findViewById(R.id.btnReadmore);
+        btnReadmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                mContext.startActivity(intent);
+            }
+        });
 
-        ImageView notiImage = rowView.findViewById(R.id.imgNoti);
-        TextView notiName = rowView.findViewById(R.id.txtTitle);
-        TextView notiShortTitle = rowView.findViewById(R.id.shortTitle);
-        TextView notiDate = rowView.findViewById(R.id.dateNoti);
-
-        Notification itm = notifications.get(position);
-
-        return rowView;
+        return listItemNotification;
     }
 }
