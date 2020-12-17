@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
 public class CartActivity extends AppCompatActivity {
     TextView order, shipfee, cost, totalprice, priceproduct, sizeprice, size;
     int fee, price, total;
@@ -51,6 +50,12 @@ public class CartActivity extends AppCompatActivity {
                 }
                 CartAdapter cartAdapter = new CartAdapter(CartActivity.this,cartItems);
                 cartView.setAdapter(cartAdapter);
+                for(int i = 0 ;i < cartItems.size(); i++){
+                    totalPrice = totalPrice + cartItems.get(i).getTotal();
+                }
+                order = findViewById(R.id.order);
+                totalprice = findViewById(R.id.total_price);
+                totalprice.setText(String.valueOf(totalPrice));
             }
 
             @Override
@@ -59,13 +64,7 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        for(int i = 0 ;i < cartItems.size(); i++){
-            totalPrice = totalPrice + cartItems.get(i).getTotal();
-        }
-        order = findViewById(R.id.order);
-        shipfee = findViewById(R.id.shipfee);
-        totalprice = findViewById(R.id.total_price);
-        totalprice.setText(String.valueOf(totalPrice));
+
 //        priceproduct = findViewById(R.id.price_product);
 //        sizeprice = findViewById(R.id.sizeprice);
 //        size = findViewById(R.id.size);
