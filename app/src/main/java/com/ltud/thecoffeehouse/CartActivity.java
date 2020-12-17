@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                cartItems.clear();
+//                cartItems.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Cart cart = dataSnapshot.getValue(Cart.class);
                     cartItems.add(cart);
@@ -73,18 +73,7 @@ public class CartActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             mRef = FirebaseDatabase.getInstance().getReference("order");
-            mRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        dataSnapshot.getRef().removeValue();
-                    }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-                });
+                        mRef.getRef().removeValue();
         }
     });
     }
