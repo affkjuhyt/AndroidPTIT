@@ -63,7 +63,6 @@ public class CartActivity extends AppCompatActivity {
             totalPrice = totalPrice + cartItems.get(i).getTotal();
         }
         order = findViewById(R.id.order);
-        shipfee = findViewById(R.id.shipfee);
         totalprice = findViewById(R.id.total_price);
         totalprice.setText(String.valueOf(totalPrice));
 //        priceproduct = findViewById(R.id.price_product);

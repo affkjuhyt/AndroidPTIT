@@ -9,47 +9,48 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
+        android:id="@+id/relacancelHistory"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thien Linh"
-            android:textSize="20dp"/>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/txtHistory"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
         android:background="@color/white"
-        android:gravity="center"
-        android:text="History Orders"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/spnLocation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/map"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="65dp"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@id/imgCancelHistory"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/cancel"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            />
+
+        <TextView
+            android:layout_toRightOf="@+id/imgCancelHistory"
+            android:id="@+id/txtHistory"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Lịch sử đơn hàng"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listOrder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/txtHistory"
+        android:layout_below="@+id/relacancelHistory"
         />
 
     <RelativeLayout
         android:id="@+id/emptyOrder"
-        android:layout_below="@+id/txtHistory"
+        android:layout_below="@+id/relacancelHistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
         <ImageView
+            android:src="@drawable/cancel"
             android:layout_marginTop="30dp"
             android:id="@+id/imgEmptyOrder"
             android:layout_centerHorizontal="true"
@@ -57,18 +58,23 @@
             android:layout_height="160dp" />
 
         <TextView
+            android:layout_marginTop="20dp"
             android:id="@+id/txtEmptyOrder"
             android:layout_below="@+id/imgEmptyOrder"
+            android:text="Bạn chưa có đơn hàng nào"
             android:layout_centerHorizontal="true"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <Button
+            android:layout_marginTop="20dp"
+            android:text="Đặt hàng ngay"
+            android:layout_marginLeft="40dp"
             android:id="@+id/btnEmptyOrder"
             android:layout_below="@+id/txtEmptyOrder"
             android:layout_centerHorizontal="true"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
     </RelativeLayout>
 
 </RelativeLayout>
