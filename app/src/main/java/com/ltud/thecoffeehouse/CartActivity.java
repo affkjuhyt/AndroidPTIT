@@ -64,7 +64,6 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-
 //        priceproduct = findViewById(R.id.price_product);
 //        sizeprice = findViewById(R.id.sizeprice);
 //        size = findViewById(R.id.size);
