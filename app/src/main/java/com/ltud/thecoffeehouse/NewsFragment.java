@@ -50,8 +50,6 @@ public class NewsFragment extends Fragment {
     ArrayList<News> updateItems;
     ArrayList<News> newsItems;
     DatabaseReference mRef1;
-    DatabaseReference mRef2;
-    DatabaseReference mRef3;
     private ImageView btnNoti, imgUserLogout, imgUserLogin;
     private TextView txtDangNhap, txtKhachMoi, textdashboard;
     private FirebaseAuth mAuth;

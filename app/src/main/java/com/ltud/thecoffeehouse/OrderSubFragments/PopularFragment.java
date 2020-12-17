@@ -26,7 +26,6 @@ import java.util.ArrayList;
 public class PopularFragment extends Fragment {
     GridView popularGridView;
     GridviewAdapter gridviewAdapter;
-    ArrayList<OrderItems> orderItems;
     DatabaseReference mRef;
     ArrayList<OrderItems> orderPopularItems;
     public PopularFragment(){

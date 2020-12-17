@@ -47,6 +47,16 @@
         />
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/cart_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/add_to_cart"
+        android:backgroundTint="@color/orange"/>
 <!--    <GridView-->
 <!--        android:columnWidth="150dp"-->
 <!--        android:id="@+id/drinkGridView"-->

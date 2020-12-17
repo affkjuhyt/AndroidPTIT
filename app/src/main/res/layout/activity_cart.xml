@@ -215,81 +215,11 @@
                     android:layout_marginLeft="20dp"/>
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/img1"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_alignParentLeft="true"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="10dp">
-                        <TextView
-                            android:id="@+id/cart_product"
-                            android:textSize="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@android:color/black"
-                            android:textStyle="bold"
-                            android:text="Macca Phủ Socola"/>
-                        <TextView
-                            android:id="@+id/size"
-                            android:textSize="18dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@android:color/black"
-                            android:text="Vừa"/>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:src="@drawable/note"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"/>
-                            <EditText
-                                android:textSize="16dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/black"
-                                android:hint="Thêm ghi chú cho tài xế"
-                                android:layout_marginLeft="5dp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_alignParentRight="true">
-                    <TextView
-                        android:id="@+id/price_product"
-                        android:text="45.000 đ"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"/>
-                    <TextView
-                        android:id="@+id/sizeprice"
-                        android:text="45.000 đ"
-                        android:textSize="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_gravity="right"/>
-                </LinearLayout>
-            </RelativeLayout>
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -299,58 +229,7 @@
                 >
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="20dp">
-
-                    <TextView
-                        android:text="Tạm tính"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"/>
-
-                    <TextView
-                        android:text="Phí giao hàng"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginRight="20dp"
-                    android:layout_alignParentRight="true"
-                    >
-
-                    <TextView
-                        android:id="@+id/cost"
-                        android:text="45.000 đ"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"/>
-
-                    <TextView
-                        android:id="@+id/shipfee"
-                        android:text="10.000 đ"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="2dp"

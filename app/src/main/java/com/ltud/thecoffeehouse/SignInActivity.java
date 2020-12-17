@@ -104,6 +104,8 @@ public class SignInActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(getApplicationContext(), UserFragment.class);
                             startActivity(intent);
+
+
                         } else {
                             Toast.makeText(SignInActivity.this, "Sorry auth failed", Toast.LENGTH_SHORT).show();
                         }

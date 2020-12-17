@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,6 @@ import java.util.ArrayList;
 public class FoodFragment extends Fragment {
     GridView foodGridView;
     GridviewAdapter gridviewAdapter;
-    ArrayList<OrderItems> orderItems;
     DatabaseReference mRef;
     ArrayList<OrderItems> orderFoodItems;
     public FoodFragment(){
@@ -63,6 +63,12 @@ public class FoodFragment extends Fragment {
         });
         gridviewAdapter = new GridviewAdapter(getContext(), orderFoodItems);
         foodGridView.setAdapter(gridviewAdapter);
+        foodGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                
+            }
+        });
         return view;
     }
 }

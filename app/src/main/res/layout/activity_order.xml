@@ -40,13 +40,13 @@
 
             <TextView
                 android:id="@+id/price"
-                android:textSize="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
                 android:layout_marginBottom="10dp"
+                android:text="32.000 đ"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:text="32.000 đ"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

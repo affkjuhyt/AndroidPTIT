@@ -1,5 +1,6 @@
 package com.ltud.thecoffeehouse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -32,6 +34,7 @@ public class OrderFragment extends Fragment {
     TabLayout tabLayout;
     DatabaseReference mRef;
     ArrayList<OrderItems> orderPopularItems;
+    ImageView imageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +42,14 @@ public class OrderFragment extends Fragment {
         orderPopularItems = new ArrayList<>();
         viewPager = view.findViewById(R.id.viewPager);
         tabLayout = view.findViewById(R.id.tabLayout);
+        imageView = view.findViewById(R.id.cart_img);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CartActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

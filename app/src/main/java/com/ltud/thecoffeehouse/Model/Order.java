@@ -1,27 +1,11 @@
 package com.ltud.thecoffeehouse.Model;
 
-public class Cart {
+public class Order {
     String orderName;
     Long total;
-    Long quantity;
     Long id;
-    public Cart() {
-    }
-
-    public String getOrderName() {
-        return orderName;
-    }
-
-    public void setOrderName(String orderName) {
-        this.orderName = orderName;
-    }
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
+    Long quantity;
+    public Order() {
     }
 
     public Long getId() {
@@ -38,5 +22,21 @@ public class Cart {
 
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
+    }
+
+    public String getOrderName() {
+        return orderName;
+    }
+
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
 }

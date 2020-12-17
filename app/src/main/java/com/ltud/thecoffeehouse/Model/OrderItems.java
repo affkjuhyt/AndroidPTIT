@@ -3,7 +3,7 @@ package com.ltud.thecoffeehouse.Model;
 public class OrderItems {
     String name;
     String image;
-    String price;
+    Long price;
     Long id,group_id;
     String description;
     String group_name;
@@ -36,11 +36,11 @@ public class OrderItems {
         this.id = id;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

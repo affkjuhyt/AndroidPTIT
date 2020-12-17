@@ -54,12 +54,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.tvTitle.setText(news.getTitle());
         holder.tvDescription.setText(news.getDescription());
         Glide.with(context).load(news.getImage()).into(holder.imageView);
+        holder.btnGoToDetailNews.setTag(position);
         holder.btnGoToDetailNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int tag = (Integer)holder.btnGoToDetailNews.getTag();
                 if(String.valueOf(position) !=null){
                     Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
-                    openURL.setData(Uri.parse(news.getLink()));
+                    openURL.setData(Uri.parse(newsItem.get(tag).getLink()));
                     context.startActivity(openURL);
                 }
 
