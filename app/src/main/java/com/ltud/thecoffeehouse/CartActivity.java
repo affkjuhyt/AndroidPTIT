@@ -68,24 +68,26 @@ public class CartActivity extends AppCompatActivity {
 
             }
         });
-    checkout = findViewById(R.id.order);
-    checkout.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            mRef = FirebaseDatabase.getInstance().getReference("order");
-            mRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        dataSnapshot.getRef().removeValue();
+        checkout = findViewById(R.id.order);
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRef = FirebaseDatabase.getInstance().getReference("order");
+                mRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                            dataSnapshot.getRef().removeValue();
+                        }
                     }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                }
+                    }
                 });
-        }
-    });
+                Intent intent = new Intent(CartActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
