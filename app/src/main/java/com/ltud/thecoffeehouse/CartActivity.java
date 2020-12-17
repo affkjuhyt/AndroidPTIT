@@ -73,18 +73,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mRef = FirebaseDatabase.getInstance().getReference("order");
-                mRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                            dataSnapshot.getRef().removeValue();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                            mRef.getRef().removeValue();
                 Intent intent = new Intent(CartActivity.this, MainActivity.class);
                 startActivity(intent);
             }
