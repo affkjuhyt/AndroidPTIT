@@ -31,7 +31,9 @@ public class CartActivity extends AppCompatActivity {
     DatabaseReference mRef;
     ArrayList<Cart> cartItems;
     ListView cartView;
+    TextView total1;
     long totalPrice = 0;
+    TextView checkout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +49,18 @@ public class CartActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Cart cart = dataSnapshot.getValue(Cart.class);
                     cartItems.add(cart);
+
                 }
                 CartAdapter cartAdapter = new CartAdapter(CartActivity.this,cartItems);
                 cartView.setAdapter(cartAdapter);
                 for(int i = 0 ;i < cartItems.size(); i++){
                     totalPrice = totalPrice + cartItems.get(i).getTotal();
+                    order = findViewById(R.id.order);
+                    totalprice = findViewById(R.id.total_price1);
+                    totalprice.setText(String.valueOf(totalPrice)+ "000 đ");
+                    total1 = findViewById(R.id.total);
+                    total1.setText(String.valueOf(totalPrice)+ "000 đ");
                 }
-                order = findViewById(R.id.order);
-                totalprice = findViewById(R.id.total_price);
-                totalprice.setText(String.valueOf(totalPrice));
             }
 
             @Override
@@ -63,6 +68,18 @@ public class CartActivity extends AppCompatActivity {
 
             }
         });
+    checkout = findViewById(R.id.order);
+    checkout.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            mRef = FirebaseDatabase.getInstance().getReference("order");
+            mRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                        dataSnapshot.getRef().removeValue();
+
+                    }
 
 //        priceproduct = findViewById(R.id.price_product);
 //        sizeprice = findViewById(R.id.sizeprice);
@@ -108,5 +125,14 @@ public class CartActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+                });
+        }
+    });
     }
 }
