@@ -78,55 +78,8 @@ public class CartActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                         dataSnapshot.getRef().removeValue();
-
                     }
-
-//        priceproduct = findViewById(R.id.price_product);
-//        sizeprice = findViewById(R.id.sizeprice);
-//        size = findViewById(R.id.size);
-//
-//        order.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showDialog();
-//            }
-//        });
-//
-//        cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CartActivity.this, PopularFragment.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//    }
-//
-//    public void showDialog(){
-//        dialog = new Dialog(CartActivity.this);
-//        dialog.setContentView(R.layout.dialogcart);
-//        final Button ok = (Button) dialog.findViewById(R.id.ok);
-//        final Button home = (Button) dialog.findViewById(R.id.home);
-//        dialog.show();
-//        ok.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CartActivity.this, CartActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//        home.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(CartActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//    }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 

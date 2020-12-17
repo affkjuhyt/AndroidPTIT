@@ -262,7 +262,7 @@
 
                     <TextView
                         android:id="@id/total"
-                        android:text="55.000 đ"
+                        android:text="0"
                         android:textSize="18dp"
                         android:textColor="@android:color/black"
                         android:layout_width="wrap_content"
@@ -310,7 +310,7 @@
                     android:backgroundTint="#FF9500"/>
                 <TextView
                     android:id="@+id/total_price1"
-                    android:text="55.000 đ"
+                    android:text="0 đ"
                     android:textSize="20dp"
                     android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
